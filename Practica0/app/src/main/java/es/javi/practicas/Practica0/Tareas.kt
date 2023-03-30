@@ -23,7 +23,7 @@ class Tareas {
         println()
     }
 
-    fun media_moda_mediana(
+    fun mediamModaMediana(
         list: List<Int>
     ) {
         println("========TAREA 2========")
@@ -34,7 +34,7 @@ class Tareas {
         println("La media es: ${df.format(media)}")
 
         // moda
-        // Crea map con Key(número) y valor(veces que aparece) usando groupingBy. Cuenta cuantas veces aparece. Recoge la key con mayor valor
+        // Crea objeto(clave,valor) número) y veces que aparece usando groupingBy. Recoge la key con mayor valor
         val moda = list.groupingBy { it }.eachCount().maxBy { it.value }.key
         println("La moda es: $moda")
 
@@ -52,7 +52,7 @@ class Tareas {
         println()
     }
 
-    fun cadena_mas_larga(
+    fun cadenaMasLarga(
         cadena: List<String>
     ){
         println("========TAREA 3========")
@@ -60,23 +60,23 @@ class Tareas {
         println()
     }
 
-    fun succesion_fibonacci(
+    fun succesionFibonacci(
         numero_final: Int
     ){
         println("========TAREA 4========")
-        var num_lista: Int
-        val lista_numeros = mutableListOf(0, 1)
+        var numLista: Int
+        val listaNumeros = mutableListOf(0, 1)
 
         for (i in 1..numero_final) {
-            num_lista = lista_numeros[i] + lista_numeros[i-1] // sumar los dos números anteriores para obtener el siguiente
-            lista_numeros.add(num_lista)
+            numLista = listaNumeros[i] + listaNumeros[i-1] // sumar los dos números anteriores para obtener el siguiente
+            listaNumeros.add(numLista)
         }
 
-        println(lista_numeros)
+        println(listaNumeros)
         println()
     }
 
-    fun lenguaje_hacker(
+    fun lenguajeHacker(
         cadena: String
     ){
         println("========TAREA 5========")
@@ -84,7 +84,7 @@ class Tareas {
         println()
     }
 
-    fun invertir_espejo_cadena(
+    fun invertirEspejoCadena(
         cad: String
     ){
         println("========TAREA 6========")
@@ -96,8 +96,7 @@ class Tareas {
 
         println()
     }
-
-    fun piedra_papel_tijeras_lagarto_spock(
+    fun piedraPapelTijerasLagartoSpock(
         p1 : List<String>,
         p2 : List<String>
     ) {
@@ -110,14 +109,11 @@ class Tareas {
             "papel VS piedra" to "papel",
             "papel VS lagarto" to "lagarto",
             "papel VS spock" to "papel",
-
             "tijeras VS piedra" to "piedra",
             "tijeras VS spock" to "spock",
             "tijeras VS lagarto" to "tijeras",
-
             "piedra VS lagarto" to "piedra",
             "piedra VS spock" to "spock",
-
             "lagarto VS spock" to "lagarto"
 
         )
@@ -139,10 +135,10 @@ class Tareas {
                 val tiradaReversed = "${p2[i].lowercase(Locale.ROOT)} VS ${p1[i].lowercase(Locale.ROOT)}"
 
                 // buscamos las reglas para establecer ganador
-                if (reglas.containsKey(tirada)){
-                    ganador = reglas[tirada].toString()
+                ganador = if (reglas.containsKey(tirada)){
+                    reglas[tirada].toString()
                 } else {
-                    ganador = reglas[tiradaReversed].toString()
+                    reglas[tiradaReversed].toString()
                 }
 
                 resultado.add("($tirada)")
@@ -191,14 +187,39 @@ class Tareas {
         println()
     }
 
-    fun numeros_1a100_sustituyendo() {
+    fun numeros1a100Sustituyendo() {
         println("========TAREA 8========")
+        val listaNumeros : MutableList<String> = mutableListOf()
 
+         for (i in 1..100) {
+
+             if (i % 3 == 0 && i % 5 == 0){
+                listaNumeros.add("triplepremio")
+             } else if (i % 3 == 0) {
+                 listaNumeros.add("triple")
+             } else if (i % 5 == 0){
+                 listaNumeros.add("premio")
+             } else {
+                 listaNumeros.add(i.toString())
+             }
+
+         }
+        println(listaNumeros)
         println()
     }
 
-    fun partido_de_tenis() {
+    fun partidoDeTenis(
+        puntos : List<String>
+    ) {
         println("========TAREA 9========")
+
+
+
+        val puntuacion = mutableMapOf( // control de los puntos
+            "P1" to "Love",
+            "P2" to "Love"
+        )
+
 
         println()
     }
