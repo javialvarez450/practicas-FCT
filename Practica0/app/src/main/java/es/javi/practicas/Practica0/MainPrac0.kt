@@ -9,30 +9,35 @@ fun main(){
     tareas.capicua(121)
 
     //Tarea 2 - Calcular media, moda y mediana de un listado de números.
-    tareas.mediaModaMediana(numeros)
+    tareas.media_moda_mediana(numeros)
 
     // Tarea 3 - Obtener la cadena de caracteres más larga contenida en un listado de cadenas.
-    tareas.cadenaMasLarga(cadena)
+    tareas.cadena_mas_larga(cadena)
 
-    // Tarea 4 - Mostrar los números primos entre 1 y 100.
-    tareas.numPrimos1a100()
+    // Tarea 4 - Mostrar la sucesión de fibonacci hasta el número entero dado.
+    tareas.succesion_fibonacci(12)
 
-    // Tarea 5 - Invertir una cadena de caracteres dada
-    tareas.invertirCadena("Android")
+    // Tarea 5 - Transformar una cadena de caracteres a lenguage hacker:
+    tareas.lenguaje_hacker("Android")
 
     // Tarea 6 - Retornar una cadena de caracteres dada invertida y con efecto espejo desde el último carácter.
-    tareas.invertirEspejoCadena("Android")
+    tareas.invertir_espejo_cadena("Android")
 
-    // Tarea 7 - Dado un número positivo y mayor que 0, representarlo en número romano.
-    tareas.convertirRomano(7)
+    // Tarea 7 - Piedra, Papel, Tijera, Lagarto, Spock
+    /*- El resultado puede ser: "P1", "P2", "X"
+        - La función recibe un listado de jugada.
+            Ejemplo: [(Piedra vs Papel), (Tijera vs Papel), (Papel vs Tijera)] = P2*/
+    tareas.piedra_papel_tijera()
 
-    // Tarea 8 - Dado dos números enteros, comprobar que sean amigos. Dos números son amigos, si la suma de sus factores (distintos de ellos mismos y de uno) son iguales.
-    tareas.numerosAmigos(220,284)
-   /* Tarea 9 - La Gofrería
-    * Tenéis una fantabulosa pastelería y vuestra especialidad son los gofres. Para organizar los tamaños contáis las líneas horizontales y
-    * verticales de cada gofre, pero vuestros clientes sólo quieren saber el tamaño del gofre en número de cuadrados.
-    * Calcular dado el número de líneas verticales y el número de líneas horizontales el número de cuadrados del gofre.*/
-    tareas.gofreria(5,5)
+    // Tarea 8 - Escribir una función que muestre los números del 1 al 100, sustituyendo:
+    tareas.numeros_1a100_sustituyendo()
+
+   /* Tarea 9 - El partido de tenis
+    Escribe un programa que muestre cómo transcurre un juego de tenis y quién lo ha ganado.
+    El programa recibirá una secuencia formada por "P1" (Player 1) o "P2" (Player 2), según quien
+    gane cada punto del juego.*/
+    tareas.partido_de_tenis()
+
     /*Tarea 10 - Juego de mesa
     * Estamos construyendo un juego de mesa, y para el sistema de puntuación se nos ha ocurrido usar cartas de manera que sumando sus valores podamos llegar a cualquier puntuación.
     * Las cartas son caras así que NO queremos cartas REPETIDAS.

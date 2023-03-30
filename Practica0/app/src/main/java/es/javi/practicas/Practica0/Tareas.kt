@@ -6,8 +6,7 @@ import java.text.DecimalFormat
 class Tareas {
     fun capicua(numero: Int) {
         println("========TAREA 1========")
-        val comprobar = numero
-        val cadNumero = comprobar.toString()
+        val cadNumero = numero.toString()
         val cadInvertida = cadNumero.reversed()
 
         if (cadNumero == cadInvertida) {
@@ -15,9 +14,10 @@ class Tareas {
         } else {
             println("NO es capicua")
         }
+        println()
     }
 
-    fun mediaModaMediana(list: List<Int>) {
+    fun media_moda_mediana(list: List<Int>) {
         println("========TAREA 2========")
         val df = DecimalFormat("#.##")
 
@@ -38,50 +38,70 @@ class Tareas {
                 list[list.size / 2]
             }
         println("La mediana es: $mediana")
-    }
-
-    fun cadenaMasLarga(cadena: List<String>){
-        println("========TAREA 3========")
-        println(cadena.maxByOrNull{it.length})
-    }
-
-    fun numPrimos1a100(){
-        println("========TAREA 4========")
-
-        println("Números primos entre 1 y 100: ")
-        for (numero in 2..100) {
-            var esPrimo = true
-
-            for (divisor in 2 until numero) {
-                if (numero % divisor == 0) {
-                    esPrimo = false
-                    break
-                }
-            }
-
-            if (esPrimo) {
-                print("$numero ")
-            }
-        }
         println()
     }
 
-    fun invertirCadena(cadena: String){
-        println("========TAREA 5========")
-        println(cadena.reversed())
+    fun cadena_mas_larga(cadena: List<String>){
+        println("========TAREA 3========")
+        println(cadena.maxByOrNull{it.length})
+        println()
     }
 
-    fun invertirEspejoCadena(cad: String){
+    fun succesion_fibonacci(numero_final: Int){
+        println("========TAREA 4========")
+        var num_lista: Int
+        val lista_numeros = mutableListOf(0, 1)
+
+        for (i in 1..numero_final) {
+            num_lista = lista_numeros[i] + lista_numeros[i-1]
+            lista_numeros.add(num_lista)
+        }
+
+        println(lista_numeros)
+        println()
+    }
+
+    fun lenguaje_hacker(cadena: String){
+        println("========TAREA 5========")
+
+        println()
+    }
+
+    fun invertir_espejo_cadena(cad: String){
         println("========TAREA 6========")
         val cadenaInvertida = cad.reversed()
 
         println(cad.substring(0,cad.length-1) + cadenaInvertida)
 
         println (cad + cadenaInvertida.substring(1))
+        println()
+    }
+
+    fun piedra_papel_tijera() {
+        println("========TAREA 7========")
+
+        println()
+    }
+
+    fun numeros_1a100_sustituyendo() {
+        println("========TAREA 8========")
+
+        println()
+    }
+
+    fun partido_de_tenis() {
+        println("========TAREA 9========")
+
+        println()
+    }
+
+    fun juegoDeMesa(num: Int) {
+        println("========TAREA 10========")
+        println(Math.ceil(Math.sqrt((num).toDouble())).toInt())
     }
 
 
-    fun convertirRomano(num: Int){
+    /*fun convertirRomano(num: Int){
         println("========TAREA 7========")
         var numero = num
         var romano = ""
@@ -111,9 +131,9 @@ class Tareas {
         }
 
         println("El número romano es: $romano")
-    }
+    }*/
 
-    fun numerosAmigos(num1: Int, num2:Int) {
+    /*fun numerosAmigos(num1: Int, num2:Int) {
         println("========TAREA 8========")
         val sum1 = sumaDivisores(num1)
         val sum2 = sumaDivisores(num2)
@@ -127,6 +147,7 @@ class Tareas {
 
     fun sumaDivisores(num: Int): Int {
         var sum = 0
+
         for (i in 1 until num) {
             if (num % i == 0) {
                 sum += i
@@ -134,15 +155,11 @@ class Tareas {
         }
 
         return sum
-    }
+    }*/
 
-    fun gofreria(vertical: Int, horizontal: Int) {
+    /*fun gofreria(vertical: Int, horizontal: Int) {
         println("========TAREA 9========")
         println("El gofre tiene ${vertical * horizontal} cuadrados.")
-    }
+    }*/
 
-    fun juegoDeMesa(num: Int) {
-        println("========TAREA 10========")
-        println(Math.ceil(Math.sqrt((num).toDouble())).toInt())
-    }
 }
