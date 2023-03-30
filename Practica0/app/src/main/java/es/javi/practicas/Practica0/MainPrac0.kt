@@ -1,9 +1,13 @@
 package es.javi.practicas.Practica0
 
 fun main(){
-    val tareas = Tareas()
+    val tareas = Tareas() // Acceso a funciones de clase Tareas
+
+    // Variables necesarias para las funciones
     val numeros = listOf(6, 9, 8, 7, 5, 15, 3, 2, 1, 5)
     val cadena = listOf("Hola", "Esta no es", "Esta es la que sale por pantalla")
+    val p1 = listOf("tijeras","piedra","papel")
+    val p2 = listOf("papel","papel","piedra")
 
     // Tarea 1 - Comprobar si un número entero es capicúa.
     tareas.capicua(121)
@@ -24,10 +28,7 @@ fun main(){
     tareas.invertir_espejo_cadena("Android")
 
     // Tarea 7 - Piedra, Papel, Tijera, Lagarto, Spock
-    /*- El resultado puede ser: "P1", "P2", "X"
-        - La función recibe un listado de jugada.
-            Ejemplo: [(Piedra vs Papel), (Tijera vs Papel), (Papel vs Tijera)] = P2*/
-    tareas.piedra_papel_tijera()
+    tareas.piedra_papel_tijeras_lagarto_spock(p1,p2)
 
     // Tarea 8 - Escribir una función que muestre los números del 1 al 100, sustituyendo:
     tareas.numeros_1a100_sustituyendo()
