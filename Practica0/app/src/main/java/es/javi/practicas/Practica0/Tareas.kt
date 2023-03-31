@@ -1,9 +1,9 @@
 package es.javi.practicas.Practica0
 
+import java.lang.Math.ceil
+import java.lang.Math.sqrt
 import java.text.DecimalFormat
 import java.util.*
-import kotlin.math.ceil
-import kotlin.math.sqrt
 
 
 class Tareas {
@@ -80,6 +80,53 @@ class Tareas {
         cadena: String
     ){
         println("========TAREA 5========")
+        val diccionario = hashMapOf(
+            'A' to "4",
+            'B' to "I3",
+            'C' to "[",
+            'D' to ")",
+            'E' to "3",
+            'F' to "|=",
+            'G' to "&",
+            'H' to "#",
+            'I' to "1",
+            'J' to ",_|",
+            'K' to ">|",
+            'L' to "1",
+            'M' to "/\\/\\",
+            'N' to "^/",
+            'Ñ' to "Ñ",
+            'O' to "0",
+            'P' to "|*",
+            'Q' to "(_,)",
+            'R' to "I2",
+            'S' to "5",
+            'T' to "7",
+            'U' to "(_)",
+            'V' to "\\/",
+            'W' to "\\/\\/",
+            'X' to "><",
+            'Y' to "j",
+            'Z' to "2",
+            '1' to "L",
+            '2' to "R",
+            '3' to "E",
+            '4' to "A",
+            '5' to "S",
+            '6' to "b",
+            '7' to "T",
+            '8' to "B",
+            '9' to "g",
+            '0' to "o",
+            ' ' to " ",
+        )
+        var resultado = ""
+
+        for (caracter in cadena) {
+            val valor = diccionario.getOrDefault(caracter.toUpperCase(), caracter.toString())
+            resultado += valor
+        }
+        println(resultado)
 
         println()
     }
@@ -102,7 +149,6 @@ class Tareas {
     ) {
         println("========TAREA 7========")
         val resultado : MutableList<String> = mutableListOf() // lista de las jugadas
-        var ganador : String
 
         val reglas : Map<String,String> = mapOf(
             "papel VS tijeras" to "tijeras",
@@ -133,9 +179,8 @@ class Tareas {
                 // variables para controlar reglas del juego
                 val tirada = "${p1[i].lowercase(Locale.ROOT)} VS ${p2[i].lowercase(Locale.ROOT)}"
                 val tiradaReversed = "${p2[i].lowercase(Locale.ROOT)} VS ${p1[i].lowercase(Locale.ROOT)}"
-
                 // buscamos las reglas para establecer ganador
-                ganador = if (reglas.containsKey(tirada)){
+                val ganador = if (reglas.containsKey(tirada)){
                     reglas[tirada].toString()
                 } else {
                     reglas[tiradaReversed].toString()
@@ -213,13 +258,84 @@ class Tareas {
     ) {
         println("========TAREA 9========")
 
+        val sistemaPuntuacion = mapOf(0 to "Love", 1 to "15", 2 to "30", 3 to "40")
+        var puntosJug1 = 0
+        var puntosJug2 = 0
+
+        var ganador = ""
+        var empate = false
+        var ventajaJug1 = false
+        var ventajaJug2 = false
+
+        for (punto in puntos) {
+
+            if (punto == "P1") {
+
+                puntosJug1++
+
+                if (ventajaJug1) {
+                    ganador = "P1"
+                    break
+                }
+
+                if (empate) {
+                    ventajaJug1 = puntosJug1 > puntosJug2
+                }
 
 
-        val puntuacion = mutableMapOf( // control de los puntos
-            "P1" to "Love",
-            "P2" to "Love"
-        )
+            }
 
+            else if (punto == "P2") {
+                puntosJug2++
+
+                if (ventajaJug1) {
+                    ventajaJug1 = false
+                }
+
+                if (ventajaJug2) {
+                    ganador = "P2"
+                    break
+                }
+
+                if (empate) {
+                    ventajaJug2 = puntosJug2 > puntosJug1
+                }
+
+            } else {
+                println("Punto inválido: $punto")
+            }
+
+            empate = puntosJug1 == puntosJug2 && puntosJug1 >= 3
+
+            // Imprimir la puntuación actual del juego
+            if (empate) {
+                println("Deuce")
+            } else if (ventajaJug1) {
+                println("Ventaja P1")
+            } else if (ventajaJug2) {
+                println("Ventaja P2")
+            } else {
+                println("${sistemaPuntuacion[puntosJug1] ?: "Love"} - ${sistemaPuntuacion[puntosJug2] ?: "Love"}")
+            }
+
+            // Comprobar si hay un ganador del juego
+            if (puntosJug1 >= 4 && puntosJug1 >= puntosJug2 + 2) {
+                ganador = "P1"
+                break
+            } else if (puntosJug2 >= 4 && puntosJug2 >= puntosJug1 + 2) {
+                ganador = "P2"
+                break
+            }
+        }
+
+        // Control fin de puntos
+        if (ganador.isNotBlank()) {
+            println("Ha ganado el $ganador")
+        }else if (puntosJug1 == puntosJug2) {
+            println("El partido ha terminado en empate")
+        } else {
+            println("El partido no ha terminado")
+        }
 
         println()
     }
@@ -228,9 +344,32 @@ class Tareas {
         num: Int
     ) {
         println("========TAREA 10========")
-        println(ceil(sqrt((num).toDouble())).toInt())
+
+        val cartas = mutableListOf<Int>()
+        var numActual = 0
+
+        for (i in 1..num) {
+
+            if (numActual >= i) {
+                continue // Ya podemos representar el número actual
+            }
+
+            var nuevaCarta = 1
+
+            while (cartas.contains(nuevaCarta) || numActual + nuevaCarta < i) {
+                nuevaCarta++
+            }
+            cartas.add(nuevaCarta)
+            numActual += nuevaCarta
+        }
+
+        println("Se necesitan ${cartas.size} cartas: $cartas")
+
     }
 
+
+
+    // No quería perder este código por eso esta aquí comentado
 
     /*fun convertirRomano(num: Int){
         println("========TAREA 7========")

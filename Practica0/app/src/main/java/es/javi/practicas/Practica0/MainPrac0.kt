@@ -18,7 +18,7 @@ fun main(){
     tareas.succesionFibonacci(12)
 
     // Tarea 5 - Transformar una cadena de caracteres a lenguage hacker:
-    tareas.lenguajeHacker("Android")
+    tareas.lenguajeHacker("Hola esto es Art Attack")
 
     // Tarea 6 - Retornar una cadena de caracteres dada invertida y con efecto espejo desde el último carácter.
     tareas.invertirEspejoCadena("Android")
@@ -35,10 +35,7 @@ fun main(){
     val puntos = listOf("P1","P1","P2","P2","P1","P2","P1","P1")
     tareas.partidoDeTenis(puntos)
 
-    /*Tarea 10 - Juego de mesa
-    * Estamos construyendo un juego de mesa, y para el sistema de puntuación se nos ha ocurrido usar cartas de manera que sumando sus valores podamos llegar a cualquier puntuación.
-    * Las cartas son caras así que NO queremos cartas REPETIDAS.
-    * Dado un número P, tenemos que calcular el mínimo número de cartas necesarias para poder representar todos los números desde 1 a P*/
+    //Tarea 10 - Juego de mesa
     tareas.juegoDeMesa(6)
 
 }
